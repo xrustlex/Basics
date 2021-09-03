@@ -8,8 +8,7 @@ public class VehicleTests {
 
 	@Test
 	public void canBuildCar() {
-		LargeEngine engine = new LargeEngine();
-		Car corvette = new Car("Corvette", engine);
+		Car corvette = buildCorvette();
 		corvette.start();
 	}
 	
@@ -27,8 +26,7 @@ public class VehicleTests {
 	
 	@Test
 	public void canIncrementOdometer() {
-		LargeEngine engine = new LargeEngine();
-		Car car = new Car("corvette", engine);
+		Car car = buildCorvette();
 		int distance = 1;
 		
 		int odometerBefore = car.getOdometer();
@@ -48,5 +46,10 @@ public class VehicleTests {
 		
 		assertTrue("Large engine should have cylinder count of " + largeEngineCylinderCount, largeEngine.getCylinderCount() == largeEngineCylinderCount);
 		assertTrue("Small engine should have cylinder count of " + smallEngineCylinderCount, smallEngine.getCylinderCount() == smallEngineCylinderCount);	
+	}
+	
+	private Car buildCorvette() {
+		LargeEngine engine = new LargeEngine();
+		return new Car("Corvette", engine);
 	}
 }
