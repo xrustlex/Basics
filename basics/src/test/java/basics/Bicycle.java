@@ -2,13 +2,13 @@ package basics;
 
 public class Bicycle {
 
-	private int odometer;
+	protected int odometer;
 
 	public int getOdometer() {
-		return odometer;
+		return this.odometer;
 	}
 
 	public void drive(int distance) {
-		odometer += distance;
+		this.odometer += distance;
 	}
 }
