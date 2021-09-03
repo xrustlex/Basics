@@ -14,16 +14,13 @@ public class VehicleTests {
 	
 	@Test
 	public void canBuildBicycle() {
-		// arrange
 		Bicycle bike = new Bicycle();
 		int distance = 1;
 		
-		// act
 		int odometerBefore = bike.getOdometer();
 		bike.drive(distance);
 		int odometerAfter = bike.getOdometer();
 		
-		// assert
 		assertTrue("Could not drive bicycle.", odometerAfter == odometerBefore + distance);
 	}
 }
