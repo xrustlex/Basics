@@ -38,4 +38,15 @@ public class VehicleTests {
 		
 		assertTrue("Could not drive car.", odometerAfter == odometerBefore + distance);
 	}
+	
+	@Test
+	public void carsHaveCorrectEngineSize() {
+		int smallEngineCylinderCount = 4;
+		int largeEngineCylinderCount = 8;
+		LargeEngine largeEngine = new LargeEngine();
+		SmallEngine smallEngine = new SmallEngine();
+		
+		assertTrue("Large engine should have cylinder count of " + largeEngineCylinderCount, largeEngine.getCylinderCount() == largeEngineCylinderCount);
+		assertTrue("Small engine should have cylinder count of " + smallEngineCylinderCount, smallEngine.getCylinderCount() == smallEngineCylinderCount);	
+	}
 }
