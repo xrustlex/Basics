@@ -1,26 +1,29 @@
 package basics;
 
-public class Car {
+public class Car extends Vehicle {
 	public String model;
 
-	private int odometer;
-
 	private IEngine engine;
+
+	private boolean isStarted;
 	
-	public Car(String model) {
+	public Car(String model, IEngine engine) {
 		this.model = model;
-		this.engine = new LargeEngine();		
+		this.engine = engine;		
+	}
+
+	public void start() {
+		this.engine.start();
+		this.isStarted = true;
+	}
+	
+	public boolean getIsStarted() {
+		return isStarted;
 	}
 	
 	public void drive(int distance) {
-		
-	}
-	
-	public void start() {
-		this.engine.start();
-	}
-
-	public int getOdometer() {
-		return odometer;
+		if(getIsStarted()) {
+			this.odometer += distance;
+		}
 	}
 }
