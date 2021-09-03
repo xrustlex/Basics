@@ -38,7 +38,7 @@ public class VehicleTests {
 	}
 	
 	@Test
-	public void carsHaveCorrectEngineSize() {
+	public void enginesHaveCorrectEngineSize() {
 		int smallEngineCylinderCount = 4;
 		int largeEngineCylinderCount = 8;
 		LargeEngine largeEngine = new LargeEngine();
