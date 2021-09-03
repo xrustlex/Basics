@@ -1,9 +1,7 @@
 package basics;
 
-public class Car {
+public class Car extends Vehicle {
 	public String model;
-
-	private int odometer;
 
 	private IEngine engine;
 	
@@ -18,9 +16,5 @@ public class Car {
 	
 	public void start() {
 		this.engine.start();
-	}
-
-	public int getOdometer() {
-		return odometer;
 	}
 }

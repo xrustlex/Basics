@@ -1,12 +1,6 @@
 package basics;
 
-public class Bicycle {
-
-	protected int odometer;
-
-	public int getOdometer() {
-		return this.odometer;
-	}
+public class Bicycle extends Vehicle {
 
 	public void drive(int distance) {
 		this.odometer += distance;
