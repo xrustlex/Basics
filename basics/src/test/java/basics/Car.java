@@ -9,11 +9,7 @@ public class Car extends Vehicle {
 		this.model = model;
 		this.engine = new LargeEngine();		
 	}
-	
-	public void drive(int distance) {
-		
-	}
-	
+
 	public void start() {
 		this.engine.start();
 	}

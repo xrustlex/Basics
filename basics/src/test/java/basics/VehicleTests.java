@@ -23,4 +23,17 @@ public class VehicleTests {
 		
 		assertTrue("Could not drive bicycle.", odometerAfter == odometerBefore + distance);
 	}
+	
+	@Test
+	public void canIncrementOdometer() {
+		Car car = new Car("corvette");
+		int distance = 1;
+		
+		int odometerBefore = car.getOdometer();
+		car.start();
+		car.drive(distance);
+		int odometerAfter = car.getOdometer();
+		
+		assertTrue("Could not drive car.", odometerAfter == odometerBefore + distance);
+	}
 }
