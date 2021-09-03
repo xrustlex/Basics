@@ -5,9 +5,9 @@ public class Car extends Vehicle {
 
 	private IEngine engine;
 	
-	public Car(String model) {
+	public Car(String model, IEngine engine) {
 		this.model = model;
-		this.engine = new LargeEngine();		
+		this.engine = engine;		
 	}
 
 	public void start() {

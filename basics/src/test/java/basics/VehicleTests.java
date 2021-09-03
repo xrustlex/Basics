@@ -8,7 +8,8 @@ public class VehicleTests {
 
 	@Test
 	public void canBuildCar() {
-		Car corvette = new Car("Corvette");
+		LargeEngine engine = new LargeEngine();
+		Car corvette = new Car("Corvette", engine);
 		corvette.start();
 	}
 	
@@ -26,7 +27,8 @@ public class VehicleTests {
 	
 	@Test
 	public void canIncrementOdometer() {
-		Car car = new Car("corvette");
+		LargeEngine engine = new LargeEngine();
+		Car car = new Car("corvette", engine);
 		int distance = 1;
 		
 		int odometerBefore = car.getOdometer();
