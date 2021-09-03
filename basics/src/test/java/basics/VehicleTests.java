@@ -48,6 +48,15 @@ public class VehicleTests {
 		assertTrue("Small engine should have cylinder count of " + smallEngineCylinderCount, smallEngine.getCylinderCount() == smallEngineCylinderCount);	
 	}
 	
+	@Test
+	public void canBuildConvertibleCar() {
+		SmallEngine engine = new SmallEngine();
+		ConvertibleCar convertibleCar = new ConvertibleCar("Cabrio", engine);
+		convertibleCar.start();
+		
+		assertTrue("Convertible car was not started", convertibleCar.getIsStarted());
+	}
+	
 	private Car buildCorvette() {
 		LargeEngine engine = new LargeEngine();
 		return new Car("Corvette", engine);
