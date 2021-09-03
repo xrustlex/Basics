@@ -50,8 +50,7 @@ public class VehicleTests {
 	
 	@Test
 	public void canBuildConvertibleCar() {
-		SmallEngine engine = new SmallEngine();
-		ConvertibleCar convertibleCar = new ConvertibleCar("Cabrio", engine);
+		ConvertibleCar convertibleCar = buildCabrio();
 		convertibleCar.start();
 		
 		assertTrue("Convertible car was not started", convertibleCar.getIsStarted());
@@ -59,8 +58,7 @@ public class VehicleTests {
 	
 	@Test
 	public void canToggleConvertibleTop() {
-		SmallEngine engine = new SmallEngine();
-		ConvertibleCar convertibleCar = new ConvertibleCar("Cabrio", engine);
+		ConvertibleCar convertibleCar = buildCabrio();
 		
 		convertibleCar.lowerTop();
 		boolean isTopLowered = convertibleCar.isTopLowered();
@@ -76,5 +74,10 @@ public class VehicleTests {
 	private Car buildCorvette() {
 		LargeEngine engine = new LargeEngine();
 		return new Car("Corvette", engine);
+	}
+	
+	private ConvertibleCar buildCabrio() {
+		SmallEngine engine = new SmallEngine();
+		return new ConvertibleCar("Cabrio", engine);
 	}
 }
