@@ -57,6 +57,22 @@ public class VehicleTests {
 		assertTrue("Convertible car was not started", convertibleCar.getIsStarted());
 	}
 	
+	@Test
+	public void canToggleConvertibleTop() {
+		SmallEngine engine = new SmallEngine();
+		ConvertibleCar convertibleCar = new ConvertibleCar("Cabrio", engine);
+		
+		convertibleCar.lowerTop();
+		boolean isTopLowered = convertibleCar.isTopLowered();
+		
+		assertTrue("Convertible top was not lowered", isTopLowered);
+		
+		convertibleCar.raiseTop();
+		boolean	isTopRaised = !convertibleCar.isTopLowered();
+		
+		assertTrue("Convertible top was not raised", isTopRaised);
+	}
+	
 	private Car buildCorvette() {
 		LargeEngine engine = new LargeEngine();
 		return new Car("Corvette", engine);
