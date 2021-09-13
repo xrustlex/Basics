@@ -2,12 +2,16 @@ package basics;
 
 import static org.junit.Assert.*;
 
+import java.time.Duration;
+import java.util.NoSuchElementException;
+
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SeleniumTests {
@@ -47,6 +51,38 @@ public class SeleniumTests {
 		button.click();
 
 		WebDriverWait urlChangedWait = new WebDriverWait(driver, navigateWaitTimeoutSecond);
+		urlChangedWait.until(ExpectedConditions.urlToBe(documentationPageUrl));
+
+		String currentUrl = driver.getCurrentUrl();
+
+		assertTrue("Did not navigate to the url " + documentationPageUrl, currentUrl.equals(documentationPageUrl));	
+
+		driver.quit();
+	}
+	
+	@Test
+	public void canShowExplicitFluentWait() {
+		String chromeDriverPath = "C:\\\\Users\\dtaylor\\chromedriver.exe";
+		System.setProperty(WEB_DRIVER_SYSTEM_PROPERTY, chromeDriverPath);
+		String baseUrl = "https://www.selenium.dev/";
+		String documentationPageUrl = baseUrl + "documentation/webdriver/";
+		long elementToBeClickableTimeoutSeconds = 5;
+		Duration navigateWaitTimeoutSecond = Duration.ofSeconds(5);
+		Duration pollingIntervalMilliseconds = Duration.ofMillis(100);
+		
+		WebDriver driver = new ChromeDriver();
+		driver.navigate().to(baseUrl);
+
+		WebElement button = driver.findElement(By.xpath("//h4[text()='Selenium WebDriver']/ancestor::div[@class='card h-100 border-0 bg-transparent']//a"));
+		WebDriverWait wait = new WebDriverWait(driver, elementToBeClickableTimeoutSeconds);
+		wait.until(ExpectedConditions.elementToBeClickable(button));
+		button.click();
+
+		FluentWait<WebDriver> urlChangedWait = new FluentWait<WebDriver>(driver)
+				.withTimeout(navigateWaitTimeoutSecond)
+				.pollingEvery(pollingIntervalMilliseconds)
+				.ignoring(NoSuchElementException.class);
+				
 		urlChangedWait.until(ExpectedConditions.urlToBe(documentationPageUrl));
 
 		String currentUrl = driver.getCurrentUrl();
