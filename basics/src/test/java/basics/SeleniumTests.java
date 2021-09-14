@@ -26,7 +26,7 @@ public class SeleniumTests {
 	public void setup() {
 		String chromeDriverPath = "C:\\\\Users\\dtaylor\\chromedriver.exe";
 		System.setProperty(WEB_DRIVER_SYSTEM_PROPERTY, chromeDriverPath);
-		this.baseUrl = "https://www.selenium.dev/";		
+		this.baseUrl = "https://www.selenium.dev";		
 
 		this.driver = new ChromeDriver();
 		this.driver.navigate().to(this.baseUrl);
@@ -41,47 +41,17 @@ public class SeleniumTests {
 
 	@Test
 	public void canShowExplicitWait() {
-		String documentationPageUrl = baseUrl + "documentation/webdriver/";
-		long elementToBeClickableTimeoutSeconds = 5;
-		long navigateWaitTimeoutSecond = 5;
-
-		WebElement button = driver.findElement(By.xpath("//h4[text()='Selenium WebDriver']/ancestor::div[@class='card h-100 border-0 bg-transparent']//a"));
-		WebDriverWait wait = new WebDriverWait(driver, elementToBeClickableTimeoutSeconds);
-		wait.until(ExpectedConditions.elementToBeClickable(button));
-		button.click();
-
-		WebDriverWait urlChangedWait = new WebDriverWait(driver, navigateWaitTimeoutSecond);
-		urlChangedWait.until(ExpectedConditions.urlToBe(documentationPageUrl));
+		
+		WebDriverDocumentationPage page = 
+				new SeleniumDevHomePage(driver, baseUrl)
+				.ClickReadMoreButtonSeleniumWebDriver();
 
 		String currentUrl = driver.getCurrentUrl();
+		String fullUrl = this.baseUrl + page.url;
 
-		assertTrue("Did not navigate to the url " + documentationPageUrl, currentUrl.equals(documentationPageUrl));	
+		assertTrue("Did not navigate to the url " + fullUrl, currentUrl.equals(fullUrl));	
 	}
 	
-	@Test
-	public void canShowExplicitFluentWait() {
-		String documentationPageUrl = baseUrl + "documentation/webdriver/";
-		long elementToBeClickableTimeoutSeconds = 5;
-		Duration navigateWaitTimeoutSecond = Duration.ofSeconds(5);
-		Duration pollingIntervalMilliseconds = Duration.ofMillis(100);
-		
-		WebElement button = driver.findElement(By.xpath("//h4[text()='Selenium WebDriver']/ancestor::div[@class='card h-100 border-0 bg-transparent']//a"));
-		WebDriverWait wait = new WebDriverWait(driver, elementToBeClickableTimeoutSeconds);
-		wait.until(ExpectedConditions.elementToBeClickable(button));
-		button.click();
-
-		FluentWait<WebDriver> urlChangedWait = new FluentWait<WebDriver>(driver)
-				.withTimeout(navigateWaitTimeoutSecond)
-				.pollingEvery(pollingIntervalMilliseconds)
-				.ignoring(NoSuchElementException.class);
-				
-		urlChangedWait.until(ExpectedConditions.urlToBe(documentationPageUrl));
-
-		String currentUrl = driver.getCurrentUrl();
-
-		assertTrue("Did not navigate to the url " + documentationPageUrl, currentUrl.equals(documentationPageUrl));	
-	}
-
 	@Test
 	public void canDemonstratePageObjectPattern() {
 		//1. Navigate to the Selenium Dev Homepage. 
