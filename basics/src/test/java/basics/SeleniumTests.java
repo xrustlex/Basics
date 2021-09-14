@@ -2,19 +2,12 @@ package basics;
 
 import static org.junit.Assert.*;
 
-import java.time.Duration;
-import java.util.NoSuchElementException;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import basics.pageObjects.SeleniumDevHomePage;
+import basics.pageObjects.WebDriverDocumentationPage;
 
 public class SeleniumTests {
 
