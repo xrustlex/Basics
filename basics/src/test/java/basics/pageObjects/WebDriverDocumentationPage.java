@@ -6,23 +6,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class WebDriverDocumentationPage {
+public class WebDriverDocumentationPage extends PageObject {
 	public String url = "documentation/webdriver/";
 	
-	private ChromeDriver driver;
-	private String baseUrl;
-
 	public WebDriverDocumentationPage(ChromeDriver driver, String baseUrl) {
-		this.driver = driver;
-		this.baseUrl = baseUrl;
-
+		super(driver, baseUrl);
+		
 		String fullUrl = this.baseUrl + url;
 		long navigateWaitTimeoutSecond = 5;
 		WebDriverWait urlChangedWait = new WebDriverWait(driver, navigateWaitTimeoutSecond);
 		urlChangedWait.until(ExpectedConditions.urlToBe(fullUrl));
 	}
 
-	public UnderstandingTheComponentsPage ClickUnderstandingTheComponentsLink() {
+	public UnderstandingTheComponentsPage clickUnderstandingTheComponentsLink() {
 		WebElement link = driver.findElement(By.linkText("Understanding the components"));
 		link.click();
 		

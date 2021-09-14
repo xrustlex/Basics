@@ -2,42 +2,18 @@ package basics;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.chrome.ChromeDriver;
 import basics.pageObjects.SeleniumDevHomePage;
 import basics.pageObjects.WebDriverDocumentationPage;
 
-public class SeleniumTests {
-
-	final String WEB_DRIVER_SYSTEM_PROPERTY = "webdriver.chrome.driver";
-	private ChromeDriver driver;
-	private String baseUrl;
-
-	@Before
-	public void setup() {
-		String chromeDriverPath = "C:\\\\Users\\dtaylor\\chromedriver.exe";
-		System.setProperty(WEB_DRIVER_SYSTEM_PROPERTY, chromeDriverPath);
-		this.baseUrl = "https://www.selenium.dev/";		
-
-		this.driver = new ChromeDriver();
-		this.driver.navigate().to(this.baseUrl);
-	}
+public class SeleniumTests extends TestBase {
 	
-	@Test
-	public void sanityTest() {
-		String currentUrl = this.driver.getCurrentUrl();
-		
-		assertTrue("Did not navigate to the url " + this.baseUrl, currentUrl.equals(this.baseUrl));
-	}
-
 	@Test
 	public void canShowExplicitWait() {
 		
 		WebDriverDocumentationPage page = 
 				new SeleniumDevHomePage(driver, baseUrl)
-				.ClickReadMoreButtonSeleniumWebDriver();
+				.clickReadMoreButtonSeleniumWebDriver();
 
 		String currentUrl = driver.getCurrentUrl();
 		String fullUrl = this.baseUrl + page.url;
@@ -58,14 +34,8 @@ public class SeleniumTests {
 
 		SeleniumDevHomePage page = 
 				new SeleniumDevHomePage(driver, baseUrl)
-				.ClickReadMoreButtonSeleniumWebDriver()
-				.ClickUnderstandingTheComponentsLink()
-				.ClickSeleniumLogo();
-	}
-
-
-	@After
-	public void cleanup() {
-		this.driver.quit();
+				.clickReadMoreButtonSeleniumWebDriver()
+				.clickUnderstandingTheComponentsLink()
+				.clickSeleniumLogo();
 	}
 }
