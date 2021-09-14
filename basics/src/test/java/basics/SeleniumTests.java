@@ -33,7 +33,7 @@ public class SeleniumTests {
 	}
 	
 	@Test
-	public void test() {
+	public void sanityTest() {
 		String currentUrl = this.driver.getCurrentUrl();
 		
 		assertTrue("Did not navigate to the url " + this.baseUrl, currentUrl.equals(this.baseUrl));
@@ -41,15 +41,9 @@ public class SeleniumTests {
 
 	@Test
 	public void canShowExplicitWait() {
-		String chromeDriverPath = "C:\\\\Users\\dtaylor\\chromedriver.exe";
-		System.setProperty(WEB_DRIVER_SYSTEM_PROPERTY, chromeDriverPath);
-		String baseUrl = "https://www.selenium.dev/";
 		String documentationPageUrl = baseUrl + "documentation/webdriver/";
 		long elementToBeClickableTimeoutSeconds = 5;
 		long navigateWaitTimeoutSecond = 5;
-
-		WebDriver driver = new ChromeDriver();
-		driver.navigate().to(baseUrl);
 
 		WebElement button = driver.findElement(By.xpath("//h4[text()='Selenium WebDriver']/ancestor::div[@class='card h-100 border-0 bg-transparent']//a"));
 		WebDriverWait wait = new WebDriverWait(driver, elementToBeClickableTimeoutSeconds);
@@ -62,23 +56,15 @@ public class SeleniumTests {
 		String currentUrl = driver.getCurrentUrl();
 
 		assertTrue("Did not navigate to the url " + documentationPageUrl, currentUrl.equals(documentationPageUrl));	
-
-		driver.quit();
 	}
 	
 	@Test
 	public void canShowExplicitFluentWait() {
-		String chromeDriverPath = "C:\\\\Users\\dtaylor\\chromedriver.exe";
-		System.setProperty(WEB_DRIVER_SYSTEM_PROPERTY, chromeDriverPath);
-		String baseUrl = "https://www.selenium.dev/";
 		String documentationPageUrl = baseUrl + "documentation/webdriver/";
 		long elementToBeClickableTimeoutSeconds = 5;
 		Duration navigateWaitTimeoutSecond = Duration.ofSeconds(5);
 		Duration pollingIntervalMilliseconds = Duration.ofMillis(100);
 		
-		WebDriver driver = new ChromeDriver();
-		driver.navigate().to(baseUrl);
-
 		WebElement button = driver.findElement(By.xpath("//h4[text()='Selenium WebDriver']/ancestor::div[@class='card h-100 border-0 bg-transparent']//a"));
 		WebDriverWait wait = new WebDriverWait(driver, elementToBeClickableTimeoutSeconds);
 		wait.until(ExpectedConditions.elementToBeClickable(button));
@@ -94,20 +80,11 @@ public class SeleniumTests {
 		String currentUrl = driver.getCurrentUrl();
 
 		assertTrue("Did not navigate to the url " + documentationPageUrl, currentUrl.equals(documentationPageUrl));	
-
-		driver.quit();
 	}
 
 	@Test
 	public void canDemonstratePageObjectPattern() {
-		String chromeDriverPath = "C:\\\\Users\\dtaylor\\chromedriver.exe";
-		System.setProperty(WEB_DRIVER_SYSTEM_PROPERTY, chromeDriverPath);
-		String baseUrl = "https://www.selenium.dev/";
-		
-		WebDriver driver = new ChromeDriver();
-
 		//1. Navigate to the Selenium Dev Homepage. 
-		driver.navigate().to(baseUrl);
 		//Expected: Page is shown.		
 	
 		//2. Click on Read More Button in Selenium WebDriver tile. 
