@@ -1,11 +1,13 @@
 package basics;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WebDriverDocumentationPage {
-	public String url = "/documentation/webdriver/";
+	public String url = "documentation/webdriver/";
 	
 	private ChromeDriver driver;
 	private String baseUrl;
@@ -18,5 +20,12 @@ public class WebDriverDocumentationPage {
 		long navigateWaitTimeoutSecond = 5;
 		WebDriverWait urlChangedWait = new WebDriverWait(driver, navigateWaitTimeoutSecond);
 		urlChangedWait.until(ExpectedConditions.urlToBe(fullUrl));
+	}
+
+	public UnderstandingTheComponentsPage ClickUnderstandingTheComponentsLink() {
+		WebElement link = driver.findElement(By.linkText("Understanding the components"));
+		link.click();
+		
+		return new UnderstandingTheComponentsPage(driver, this.baseUrl);
 	}
 }

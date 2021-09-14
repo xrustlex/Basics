@@ -26,7 +26,7 @@ public class SeleniumTests {
 	public void setup() {
 		String chromeDriverPath = "C:\\\\Users\\dtaylor\\chromedriver.exe";
 		System.setProperty(WEB_DRIVER_SYSTEM_PROPERTY, chromeDriverPath);
-		this.baseUrl = "https://www.selenium.dev";		
+		this.baseUrl = "https://www.selenium.dev/";		
 
 		this.driver = new ChromeDriver();
 		this.driver.navigate().to(this.baseUrl);
@@ -55,24 +55,19 @@ public class SeleniumTests {
 	@Test
 	public void canDemonstratePageObjectPattern() {
 		//1. Navigate to the Selenium Dev Homepage. 
-		//Expected: Page is shown.		
-	
+		//Expected: Page is shown.			
 		//2. Click on Read More Button in Selenium WebDriver tile. 
-		WebElement button = driver.findElement(By.xpath("//h4[text()='Selenium WebDriver']/ancestor::div[@class='card h-100 border-0 bg-transparent']//a"));
-		button.click();
 		//Expected: User is taken to the Selenium WebDriver information page.
-		
 		//3. Click on the 'Understanding the Components' hyperlink. 
-		WebElement link = driver.findElement(By.linkText("Understanding the components"));
-		link.click();
-
 		//Expected: User is taken to the Understanding Components information page.
-		
-		//4. Click on the Selenium logo. 
-		WebElement homePageLink = driver.findElement(By.id("selenium_logo"));
-		homePageLink.click();
-		
+		//4. Click on the Selenium logo.
 		//Expected: User is taken back to the Selenium Dev Homepage.
+
+		SeleniumDevHomePage page = 
+				new SeleniumDevHomePage(driver, baseUrl)
+				.ClickReadMoreButtonSeleniumWebDriver()
+				.ClickUnderstandingTheComponentsLink()
+				.ClickSeleniumLogo();
 	}
 
 
