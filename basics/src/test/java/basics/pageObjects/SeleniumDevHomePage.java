@@ -60,13 +60,6 @@ public class SeleniumDevHomePage extends PageObject {
 		popupMenu.clickItem(itemName);	
 	}
 	
-	private WebElement clickOnMenuItem(String menuItem) {
-		WebElement element = getMenuListItemElement(menuItem).findElement(By.tagName("a"));
-		element.click();	
-		
-		return element;
-	}
-
 	private WebElement getMenuListItemElement(String menuItem) {
 		return driver.findElement(By.xpath("//div[@id='main_navbar']/ul//li/a[text()='"+menuItem+"']/parent::li"));
 	}
