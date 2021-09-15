@@ -28,9 +28,13 @@ public class SeleniumDevHomePage extends PageObject {
 	}
 
 	public EventsPage clickOnEventsItemInPopupMenu() {
-		WebElement element = clickOnMenuItem("About");
-		expandMenuItem(element);
-		clickPopupMenuItem("Events");
+		WebElement menuElement = getMenuListItemElement("About");
+		expandMenuItem(menuElement);
+
+		WebElement popupMenuElement = menuElement.findElement(By.tagName("div"));
+
+		PopupMenuComponent popupMenu = new PopupMenuComponent(popupMenuElement);
+		popupMenu.clickItem("Events");
 
 		return new EventsPage(this.driver, this.baseUrl);
 	}
