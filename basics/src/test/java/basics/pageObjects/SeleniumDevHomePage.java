@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SeleniumDevHomePage extends PageObject {
-
 	public SeleniumDevHomePage(ChromeDriver driver, String baseUrl) {
 		super(driver, baseUrl);
 	}
@@ -20,5 +19,63 @@ public class SeleniumDevHomePage extends PageObject {
 		button.click();
 		
 		return new WebDriverDocumentationPage(driver, baseUrl);
+	}
+
+	public SeleniumDevHomePage expandMenuItem(WebElement element) {
+		if(element.getAttribute("aria-expanded") == "true") {
+			return this;
+		}
+		
+		element.click();
+		
+		long attributeToMatchTimeoutSeconds = 5;
+		WebDriverWait wait = new WebDriverWait(driver, attributeToMatchTimeoutSeconds);
+		wait.until(ExpectedConditions.attributeToBe(element, "aria-expanded", "true"));
+		
+		return this;
+	}
+
+	public HistoryPage clickOnHistoryItemInPopupMenu() {
+		clickPopupMenuItem("History");
+		
+		return new HistoryPage(this.driver, this.baseUrl);
+	}
+
+	public EventsPage clickOnEventsItemInPopupMenu() {
+		WebElement element = clickOnMenuItem("About");
+		expandMenuItem(element);
+		clickPopupMenuItem("Events");
+
+		return new EventsPage(this.driver, this.baseUrl);
+	}
+
+	public NederlandsPage clickOnNederlandsItemInEnglishPopupMenu() {
+		WebElement menuElement = getMenuListItemElement("English");
+		WebElement popupMenuElement = menuElement.findElement(By.tagName("div"));
+		
+		PopupMenuComponent popupMenu = new PopupMenuComponent(popupMenuElement);
+		popupMenu.clickItem("Nederlands");	
+		
+		return new NederlandsPage(this.driver, this.baseUrl);
+	}
+	
+	private void clickPopupMenuItem(String itemName) {
+		WebElement menuElement = getMenuListItemElement("About");
+		menuElement.click();
+		
+		WebElement popupMenuElement = menuElement.findElement(By.tagName("div"));
+		PopupMenuComponent popupMenu = new PopupMenuComponent(popupMenuElement);		
+		popupMenu.clickItem(itemName);	
+	}
+	
+	private WebElement clickOnMenuItem(String menuItem) {
+		WebElement element = getMenuListItemElement(menuItem).findElement(By.tagName("a"));
+		element.click();	
+		
+		return element;
+	}
+
+	private WebElement getMenuListItemElement(String menuItem) {
+		return driver.findElement(By.xpath("//div[@id='main_navbar']/ul//li/a[text()='"+menuItem+"']/parent::li"));
 	}
 }

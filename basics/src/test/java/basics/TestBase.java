@@ -16,6 +16,7 @@ public abstract class TestBase {
 		this.baseUrl = "https://www.selenium.dev/";		
 
 		this.driver = new ChromeDriver();
+		this.driver.manage().window().maximize();
 		this.driver.navigate().to(this.baseUrl);		
 	}
 	
