@@ -21,20 +21,6 @@ public class SeleniumDevHomePage extends PageObject {
 		return new WebDriverDocumentationPage(driver, baseUrl);
 	}
 
-	public SeleniumDevHomePage expandMenuItem(WebElement element) {
-		if(element.getAttribute("aria-expanded") == "true") {
-			return this;
-		}
-		
-		element.click();
-		
-		long attributeToMatchTimeoutSeconds = 5;
-		WebDriverWait wait = new WebDriverWait(driver, attributeToMatchTimeoutSeconds);
-		wait.until(ExpectedConditions.attributeToBe(element, "aria-expanded", "true"));
-		
-		return this;
-	}
-
 	public HistoryPage clickOnHistoryItemInPopupMenu() {
 		clickPopupMenuItem("History");
 		
@@ -51,6 +37,8 @@ public class SeleniumDevHomePage extends PageObject {
 
 	public NederlandsPage clickOnNederlandsItemInEnglishPopupMenu() {
 		WebElement menuElement = getMenuListItemElement("English");
+		expandMenuItem(menuElement);
+		
 		WebElement popupMenuElement = menuElement.findElement(By.tagName("div"));
 		
 		PopupMenuComponent popupMenu = new PopupMenuComponent(popupMenuElement);
@@ -77,5 +65,19 @@ public class SeleniumDevHomePage extends PageObject {
 
 	private WebElement getMenuListItemElement(String menuItem) {
 		return driver.findElement(By.xpath("//div[@id='main_navbar']/ul//li/a[text()='"+menuItem+"']/parent::li"));
+	}
+	
+	private void expandMenuItem(WebElement menuItemElement) {
+		WebElement anchorElement = menuItemElement.findElement(By.tagName("a"));
+		
+		if(anchorElement.getAttribute("aria-expanded") == "true") {
+			return;
+		}
+		
+		menuItemElement.click();
+		
+		long attributeToMatchTimeoutSeconds = 5;
+		WebDriverWait wait = new WebDriverWait(driver, attributeToMatchTimeoutSeconds);
+		wait.until(ExpectedConditions.attributeToBe(anchorElement, "aria-expanded", "true"));	
 	}
 }

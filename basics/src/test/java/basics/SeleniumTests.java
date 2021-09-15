@@ -44,7 +44,7 @@ public class SeleniumTests extends TestBase {
 	}
 
 	@Test
-	public void canDemonstratePageObjectPatternForFragmentsClickingEnglish() {
+	public void canDemonstratePageObjectPatternForFragmentsClickingNederlands() {
 		NederlandsPage page = 
 				new SeleniumDevHomePage(driver, baseUrl)
 				.clickOnNederlandsItemInEnglishPopupMenu();
