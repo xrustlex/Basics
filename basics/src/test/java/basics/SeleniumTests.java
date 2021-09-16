@@ -4,74 +4,47 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import basics.pageObjects.DownloadsPage;
-import basics.pageObjects.EventsPage;
-import basics.pageObjects.MenuPaths;
-import basics.pageObjects.NederlandsPage;
 import basics.pageObjects.SeleniumDevHomePage;
-import basics.pageObjects.SponsorPage;
-import basics.pageObjects.WebDriverDocumentationPage;
 
 public class SeleniumTests extends TestBase {
-
-	@Test
-	public void canShowExplicitWait() {
-
-		WebDriverDocumentationPage page = 
-				new SeleniumDevHomePage(driver, baseUrl)
-				.clickReadMoreButtonSeleniumWebDriver();
-
-		String currentUrl = driver.getCurrentUrl();
-		String fullUrl = this.baseUrl + page.url;
-
-		assertTrue("Did not navigate to the url " + fullUrl, currentUrl.equals(fullUrl));	
-	}
-
-	@Test
-	public void canDemonstratePageObjectPattern() {
-		//1. Navigate to the Selenium Dev Homepage. 
-		//Expected: Page is shown.			
-		//2. Click on Read More Button in Selenium WebDriver tile. 
-		//Expected: User is taken to the Selenium WebDriver information page.
-		//3. Click on the 'Understanding the Components' hyperlink. 
-		//Expected: User is taken to the Understanding Components information page.
-		//4. Click on the Selenium logo.
-		//Expected: User is taken back to the Selenium Dev Homepage.
-
-		SeleniumDevHomePage page = 
-				new SeleniumDevHomePage(driver, baseUrl)
-				.clickReadMoreButtonSeleniumWebDriver()
-				.clickUnderstandingTheComponentsLink()
-				.clickSeleniumLogo();
-	}
-
+	
 	@Test
 	public void canDemonstratePageObjectPatternForFragmentsClickingNederlands() {
-		NederlandsPage page = 
-				new SeleniumDevHomePage(driver, baseUrl)
-				.clickOnNederlandsItemInEnglishPopupMenu();
+		String expectedUrl = this.baseUrl + "nl/";
+
+		new SeleniumDevHomePage(driver, baseUrl)
+		.clickOnNederlandsItemInEnglishPopupMenu();
+
+		assertTrue("Did not navigate to the expected URL " + expectedUrl, this.driver.getCurrentUrl().equals(expectedUrl));
 	}
 
 	@Test
 	public void canDemonstratePageObjectPatternForFragmentsClickingEventsInAbout() {
-		EventsPage page = 
-				new SeleniumDevHomePage(driver, baseUrl)
-				.clickOnEventsItemInPopupMenu();
+		String expectedUrl = this.baseUrl + "events/";
+
+		new SeleniumDevHomePage(driver, baseUrl)
+		.clickOnEventsItemInPopupMenu();
+
+		assertTrue("Did not navigate to the expected URL " + expectedUrl, this.driver.getCurrentUrl().equals(expectedUrl));
 	}
-	
+
 	@Test
 	public void canDemonstratePageObjectPatternForFragmentsClickingDownloads() {
-		DownloadsPage page = 
-				new SeleniumDevHomePage(driver, baseUrl)
-				.clickOnDownloadsItemMenu();
+		String expectedUrl = this.baseUrl + "downloads/";
+
+		new SeleniumDevHomePage(driver, baseUrl)
+		.clickOnDownloadsItemMenu();
+
+		assertTrue("Did not navigate to the expected URL " + expectedUrl, this.driver.getCurrentUrl().equals(expectedUrl));
 	}
-	
+
 	@Test
 	public void canDemonstratePageObjectPatternForFragmentsClickingSponsor() {
-		SponsorPage page = 
-				new SeleniumDevHomePage(driver, baseUrl)
-				.clickOnSponsorMenuItem();
-		
-		assertTrue(this.driver.getCurrentUrl().equals(this.baseUrl + "sponsors/"));
+		String expectedUrl = this.baseUrl + "sponsors/";
+
+		new SeleniumDevHomePage(driver, baseUrl)
+		.clickOnSponsorMenuItem();
+
+		assertTrue("Did not navigate to the expected URL " + expectedUrl, this.driver.getCurrentUrl().equals(expectedUrl));
 	}
 }
