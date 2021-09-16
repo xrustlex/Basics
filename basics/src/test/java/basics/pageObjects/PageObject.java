@@ -23,4 +23,10 @@ public abstract class PageObject {
 		
 		return menu;
 	}
+
+	public void goToUrl(String url) {
+		String fullUrl = this.baseUrl + url;
+		
+		driver.navigate().to(fullUrl);		
+	}
 }

@@ -50,4 +50,14 @@ public class SeleniumTests extends TestBase {
 
 		assertTrue("Did not navigate to the expected URL " + expectedUrl, this.driver.getCurrentUrl().equals(expectedUrl));
 	}
+	
+	@Test
+	public void canNavigateToSeleniumGridPage() { 
+		String expectedUrl = this.baseUrl + "documentation/grid/";
+		
+		new DocumentationGridPage(driver, baseUrl)
+		.navigate();
+		
+		assertTrue("Did not navigate to the expected URL " + expectedUrl, this.driver.getCurrentUrl().equals(expectedUrl));	
+	}
 }
