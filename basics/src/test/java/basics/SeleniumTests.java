@@ -10,7 +10,7 @@ import basics.pageObjects.NederlandsPage;
 import basics.pageObjects.SponsorPage;
 
 public class SeleniumTests extends TestBase {
-	
+
 	@Test
 	public void canDemonstratePageObjectPatternForFragmentsClickingNederlands() {
 		String expectedUrl = this.baseUrl + "nl/";
@@ -25,7 +25,7 @@ public class SeleniumTests extends TestBase {
 	public void canDemonstratePageObjectPatternForFragmentsClickingEventsInAbout() {
 		String expectedUrl = this.baseUrl + "events/";
 
-		new EventsPage(driver,baseUrl)
+		new EventsPage(driver, baseUrl)
 		.navigate();
 
 		assertTrue("Did not navigate to the expected URL " + expectedUrl, this.driver.getCurrentUrl().equals(expectedUrl));
