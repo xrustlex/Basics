@@ -7,4 +7,10 @@ public class NederlandsPage extends PageObject {
 	public NederlandsPage(ChromeDriver driver, String baseUrl) {
 		super(driver, baseUrl);
 	}
+
+	public NederlandsPage navigate() {
+		getMenu().navigate(MenuPaths.EnglishNederlands);	
+		
+		return this;
+	}
 }

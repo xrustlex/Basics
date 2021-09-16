@@ -1,7 +1,5 @@
 package basics.pageObjects;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SeleniumDevHomePage extends PageObject {
@@ -27,17 +25,9 @@ public class SeleniumDevHomePage extends PageObject {
 		return new NederlandsPage(this.driver, this.baseUrl);
 	}
 
-	public SponsorPage clickOnSponsorMenuItem() {
+	public SponsorsPage clickOnSponsorMenuItem() {
 		getMenu().navigate(MenuPaths.AboutSponsors);
 		
-		return new SponsorPage(this.driver, this.baseUrl);
-	}
-	
-	private MenuComponent getMenu() {
-		WebElement menuRootElement = driver.findElement(By.id("main_navbar"));
-
-		MenuComponent menu = new MenuComponent(menuRootElement, this.driver);
-		
-		return menu;
+		return new SponsorsPage(this.driver, this.baseUrl);
 	}
 }

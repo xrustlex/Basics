@@ -4,16 +4,19 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import basics.pageObjects.SeleniumDevHomePage;
+import basics.pageObjects.DownloadsPage;
+import basics.pageObjects.EventsPage;
+import basics.pageObjects.NederlandsPage;
+import basics.pageObjects.SponsorsPage;
 
 public class SeleniumTests extends TestBase {
-	
+
 	@Test
 	public void canDemonstratePageObjectPatternForFragmentsClickingNederlands() {
 		String expectedUrl = this.baseUrl + "nl/";
 
-		new SeleniumDevHomePage(driver, baseUrl)
-		.clickOnNederlandsItemInEnglishPopupMenu();
+		new NederlandsPage(driver, baseUrl)
+		.navigate();
 
 		assertTrue("Did not navigate to the expected URL " + expectedUrl, this.driver.getCurrentUrl().equals(expectedUrl));
 	}
@@ -22,8 +25,8 @@ public class SeleniumTests extends TestBase {
 	public void canDemonstratePageObjectPatternForFragmentsClickingEventsInAbout() {
 		String expectedUrl = this.baseUrl + "events/";
 
-		new SeleniumDevHomePage(driver, baseUrl)
-		.clickOnEventsItemInPopupMenu();
+		new EventsPage(driver, baseUrl)
+		.navigate();
 
 		assertTrue("Did not navigate to the expected URL " + expectedUrl, this.driver.getCurrentUrl().equals(expectedUrl));
 	}
@@ -32,8 +35,8 @@ public class SeleniumTests extends TestBase {
 	public void canDemonstratePageObjectPatternForFragmentsClickingDownloads() {
 		String expectedUrl = this.baseUrl + "downloads/";
 
-		new SeleniumDevHomePage(driver, baseUrl)
-		.clickOnDownloadsItemMenu();
+		new DownloadsPage(driver, baseUrl)
+		.navigate();
 
 		assertTrue("Did not navigate to the expected URL " + expectedUrl, this.driver.getCurrentUrl().equals(expectedUrl));
 	}
@@ -42,9 +45,19 @@ public class SeleniumTests extends TestBase {
 	public void canDemonstratePageObjectPatternForFragmentsClickingSponsor() {
 		String expectedUrl = this.baseUrl + "sponsors/";
 
-		new SeleniumDevHomePage(driver, baseUrl)
-		.clickOnSponsorMenuItem();
+		new SponsorsPage(driver, baseUrl)
+		.navigate();
 
 		assertTrue("Did not navigate to the expected URL " + expectedUrl, this.driver.getCurrentUrl().equals(expectedUrl));
+	}
+	
+	@Test
+	public void canNavigateToSeleniumGridPage() { 
+		String expectedUrl = this.baseUrl + "documentation/grid/";
+		
+		new DocumentationGridPage(driver, baseUrl)
+		.navigate();
+		
+		assertTrue("Did not navigate to the expected URL " + expectedUrl, this.driver.getCurrentUrl().equals(expectedUrl));	
 	}
 }
