@@ -27,9 +27,9 @@ public class SeleniumDevHomePage extends PageObject {
 		return new NederlandsPage(this.driver, this.baseUrl);
 	}
 
-	public SponsorPage clickOnSponsorMenuItem() {
+	public SponsorsPage clickOnSponsorMenuItem() {
 		getMenu().navigate(MenuPaths.AboutSponsors);
 		
-		return new SponsorPage(this.driver, this.baseUrl);
+		return new SponsorsPage(this.driver, this.baseUrl);
 	}
 }

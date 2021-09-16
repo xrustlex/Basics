@@ -7,7 +7,7 @@ import org.junit.Test;
 import basics.pageObjects.DownloadsPage;
 import basics.pageObjects.EventsPage;
 import basics.pageObjects.NederlandsPage;
-import basics.pageObjects.SponsorPage;
+import basics.pageObjects.SponsorsPage;
 
 public class SeleniumTests extends TestBase {
 
@@ -45,7 +45,7 @@ public class SeleniumTests extends TestBase {
 	public void canDemonstratePageObjectPatternForFragmentsClickingSponsor() {
 		String expectedUrl = this.baseUrl + "sponsors/";
 
-		new SponsorPage(driver, baseUrl)
+		new SponsorsPage(driver, baseUrl)
 		.navigate();
 
 		assertTrue("Did not navigate to the expected URL " + expectedUrl, this.driver.getCurrentUrl().equals(expectedUrl));

@@ -2,15 +2,15 @@ package basics.pageObjects;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class SponsorPage extends PageObject {
+public class SponsorsPage extends PageObject {
 
 	public final String url = this.baseUrl + MenuPaths.AboutSponsors.getRelativeUrl();
 
-	public SponsorPage(ChromeDriver driver, String baseUrl) {
+	public SponsorsPage(ChromeDriver driver, String baseUrl) {
 		super(driver, baseUrl);
 	}
 
-	public SponsorPage navigate() {
+	public SponsorsPage navigate() {
 		getMenu().navigate(MenuPaths.AboutSponsors);	
 
 		return this;		

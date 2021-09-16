@@ -8,7 +8,9 @@ public class EventsPage extends PageObject {
 		super(driver, baseUrl);
 	}
 
-	public void navigate() {
+	public EventsPage navigate() {
 		getMenu().navigate(MenuPaths.AboutEvents);	
+		
+		return this;
 	}
 }
