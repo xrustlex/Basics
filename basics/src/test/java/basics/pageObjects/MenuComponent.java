@@ -18,8 +18,8 @@ public class MenuComponent {
 		this.driver = driver;
 	}
 
-	public void navigate(String menuItemPath) {
-		String[] menuPathSegments = menuItemPath.split("/");
+	public void navigate(IMenuPath menuItemPath) {
+		String[] menuPathSegments = menuItemPath.getSegments().split("/");
 
 		String menuItem = menuPathSegments[0];
 		this.menuItemRootElement = this.mappedElement.findElement(menuItemRoot);

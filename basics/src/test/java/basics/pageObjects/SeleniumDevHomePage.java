@@ -12,25 +12,25 @@ public class SeleniumDevHomePage extends PageObject {
 	}
 
 	public DownloadsPage clickOnDownloadsItemMenu() {
-		getMenu().navigate("Downloads");
+		getMenu().navigate(MenuPaths.Downloads);
 
 		return new DownloadsPage(this.driver, this.baseUrl);
 	}
 
 	public EventsPage clickOnEventsItemInPopupMenu() {
-		getMenu().navigate("About/Events");
+		getMenu().navigate(MenuPaths.AboutEvents);
 
 		return new EventsPage(this.driver, this.baseUrl);
 	}
 
 	public NederlandsPage clickOnNederlandsItemInEnglishPopupMenu() {
-		getMenu().navigate("English/Nederlands");
+		getMenu().navigate(MenuPaths.EnglishNederlands);
 
 		return new NederlandsPage(this.driver, this.baseUrl);
 	}
 
 	public SponsorPage clickOnSponsorMenuItem() {
-		getMenu().navigate("About/Sponsors");
+		getMenu().navigate(MenuPaths.AboutSponsors);
 		
 		return new SponsorPage(this.driver, this.baseUrl);
 	}

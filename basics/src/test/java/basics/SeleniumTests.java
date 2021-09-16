@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import basics.pageObjects.DownloadsPage;
 import basics.pageObjects.EventsPage;
-import basics.pageObjects.HistoryPage;
+import basics.pageObjects.MenuPaths;
 import basics.pageObjects.NederlandsPage;
 import basics.pageObjects.SeleniumDevHomePage;
 import basics.pageObjects.SponsorPage;
@@ -71,5 +71,7 @@ public class SeleniumTests extends TestBase {
 		SponsorPage page = 
 				new SeleniumDevHomePage(driver, baseUrl)
 				.clickOnSponsorMenuItem();
+		
+		assertTrue(this.driver.getCurrentUrl().equals(this.baseUrl + "sponsors/"));
 	}
 }
