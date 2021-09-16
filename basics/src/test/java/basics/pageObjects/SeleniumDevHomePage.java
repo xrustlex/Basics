@@ -42,8 +42,8 @@ public class SeleniumDevHomePage extends PageObject {
 	public NederlandsPage clickOnNederlandsItemInEnglishPopupMenu() {
 		WebElement menuRootElement = driver.findElement(By.id("main_navbar"));
 
-		MenuComponent menu = new MenuComponent(menuRootElement);
-		menu.navigate("About");
+		MenuComponent menu = new MenuComponent(menuRootElement, this.driver);
+		menu.navigate("English/Nederlands");
 
 
 
@@ -75,7 +75,7 @@ public class SeleniumDevHomePage extends PageObject {
 	public DownloadsPage clickOnDownloadsItemMenu() {
 		WebElement menuRootElement = driver.findElement(By.id("main_navbar"));
 
-		MenuComponent menu = new MenuComponent(menuRootElement);
+		MenuComponent menu = new MenuComponent(menuRootElement, this.driver);
 		menu.navigate("Downloads");
 		
 		return new DownloadsPage(this.driver, this.baseUrl);
