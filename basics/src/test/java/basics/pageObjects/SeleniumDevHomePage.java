@@ -12,28 +12,19 @@ public class SeleniumDevHomePage extends PageObject {
 	}
 
 	public DownloadsPage clickOnDownloadsItemMenu() {
-		WebElement menuRootElement = driver.findElement(By.id("main_navbar"));
-
-		MenuComponent menu = new MenuComponent(menuRootElement, this.driver);
-		menu.navigate("Downloads");
+		getMenu().navigate("Downloads");
 
 		return new DownloadsPage(this.driver, this.baseUrl);
 	}
 
 	public EventsPage clickOnEventsItemInPopupMenu() {
-		WebElement menuRootElement = driver.findElement(By.id("main_navbar"));
-
-		MenuComponent menu = new MenuComponent(menuRootElement, this.driver);
-		menu.navigate("About/Events");
+		getMenu().navigate("About/Events");
 
 		return new EventsPage(this.driver, this.baseUrl);
 	}
 
 	public NederlandsPage clickOnNederlandsItemInEnglishPopupMenu() {
-		WebElement menuRootElement = driver.findElement(By.id("main_navbar"));
-
-		MenuComponent menu = new MenuComponent(menuRootElement, this.driver);
-		menu.navigate("English/Nederlands");
+		getMenu().navigate("English/Nederlands");
 
 		return new NederlandsPage(this.driver, this.baseUrl);
 	}
@@ -47,5 +38,12 @@ public class SeleniumDevHomePage extends PageObject {
 
 		return new WebDriverDocumentationPage(driver, baseUrl);
 	}
-}
+	
+	private MenuComponent getMenu() {
+		WebElement menuRootElement = driver.findElement(By.id("main_navbar"));
 
+		MenuComponent menu = new MenuComponent(menuRootElement, this.driver);
+		
+		return menu;
+	}
+}

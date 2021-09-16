@@ -27,7 +27,7 @@ public class MenuComponent {
 		WebElement anchorElement = listItemElement.findElement(By.tagName("a"));
 		anchorElement.click();	
 
-		if(menuPathSegments.length < 1) {
+		if(menuPathSegments.length < 2) {
 			return;
 		}
 
