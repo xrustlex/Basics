@@ -29,6 +29,12 @@ public class SeleniumDevHomePage extends PageObject {
 		return new NederlandsPage(this.driver, this.baseUrl);
 	}
 
+	public SponsorPage clickOnSponsorMenuItem() {
+		getMenu().navigate("About/Sponsors");
+		
+		return new SponsorPage(this.driver, this.baseUrl);
+	}
+	
 	public WebDriverDocumentationPage clickReadMoreButtonSeleniumWebDriver() {
 		long elementToBeClickableTimeoutSeconds = 5;
 		WebElement button = driver.findElement(By.xpath("//h4[text()='Selenium WebDriver']/ancestor::div[@class='card h-100 border-0 bg-transparent']//a"));
@@ -46,4 +52,5 @@ public class SeleniumDevHomePage extends PageObject {
 		
 		return menu;
 	}
+
 }

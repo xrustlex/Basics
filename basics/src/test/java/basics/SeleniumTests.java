@@ -9,6 +9,7 @@ import basics.pageObjects.EventsPage;
 import basics.pageObjects.HistoryPage;
 import basics.pageObjects.NederlandsPage;
 import basics.pageObjects.SeleniumDevHomePage;
+import basics.pageObjects.SponsorPage;
 import basics.pageObjects.WebDriverDocumentationPage;
 
 public class SeleniumTests extends TestBase {
@@ -63,5 +64,12 @@ public class SeleniumTests extends TestBase {
 		DownloadsPage page = 
 				new SeleniumDevHomePage(driver, baseUrl)
 				.clickOnDownloadsItemMenu();
+	}
+	
+	@Test
+	public void canDemonstratePageObjectPatternForFragmentsClickingSponsor() {
+		SponsorPage page = 
+				new SeleniumDevHomePage(driver, baseUrl)
+				.clickOnSponsorMenuItem();
 	}
 }
