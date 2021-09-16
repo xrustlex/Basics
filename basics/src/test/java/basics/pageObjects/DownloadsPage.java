@@ -4,7 +4,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DownloadsPage extends PageObject {
 
-	protected DownloadsPage(ChromeDriver driver, String baseUrl) {
+	public DownloadsPage(ChromeDriver driver, String baseUrl) {
 		super(driver, baseUrl);
+	}
+
+	public DownloadsPage navigate() {
+		getMenu().navigate(MenuPaths.Downloads);
+		
+		return this;
 	}
 }

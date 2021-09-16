@@ -32,12 +32,4 @@ public class SeleniumDevHomePage extends PageObject {
 		
 		return new SponsorPage(this.driver, this.baseUrl);
 	}
-	
-	private MenuComponent getMenu() {
-		WebElement menuRootElement = driver.findElement(By.id("main_navbar"));
-
-		MenuComponent menu = new MenuComponent(menuRootElement, this.driver);
-		
-		return menu;
-	}
 }
