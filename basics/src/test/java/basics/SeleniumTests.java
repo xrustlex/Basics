@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import basics.pageObjects.DownloadsPage;
 import basics.pageObjects.EventsPage;
 import basics.pageObjects.HistoryPage;
 import basics.pageObjects.NederlandsPage;
@@ -55,5 +56,12 @@ public class SeleniumTests extends TestBase {
 		EventsPage page = 
 				new SeleniumDevHomePage(driver, baseUrl)
 				.clickOnEventsItemInPopupMenu();
+	}
+	
+	@Test
+	public void canDemonstratePageObjectPatternForFragmentsClickingDownloads() {
+		DownloadsPage page = 
+				new SeleniumDevHomePage(driver, baseUrl)
+				.clickOnDownloadsItemMenu();
 	}
 }

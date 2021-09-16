@@ -17,13 +17,13 @@ public class SeleniumDevHomePage extends PageObject {
 		WebDriverWait wait = new WebDriverWait(driver, elementToBeClickableTimeoutSeconds);
 		wait.until(ExpectedConditions.elementToBeClickable(button));
 		button.click();
-		
+
 		return new WebDriverDocumentationPage(driver, baseUrl);
 	}
 
 	public HistoryPage clickOnHistoryItemInPopupMenu() {
 		clickPopupMenuItem("History");
-		
+
 		return new HistoryPage(this.driver, this.baseUrl);
 	}
 
@@ -40,41 +40,58 @@ public class SeleniumDevHomePage extends PageObject {
 	}
 
 	public NederlandsPage clickOnNederlandsItemInEnglishPopupMenu() {
+		WebElement menuRootElement = driver.findElement(By.id("main_navbar"));
+
+		MenuComponent menu = new MenuComponent(menuRootElement);
+		menu.navigate("About");
+
+
+
 		WebElement menuElement = getMenuListItemElement("English");
 		expandMenuItem(menuElement);
-		
+
 		WebElement popupMenuElement = menuElement.findElement(By.tagName("div"));
-		
+
 		PopupMenuComponent popupMenu = new PopupMenuComponent(popupMenuElement);
 		popupMenu.clickItem("Nederlands");	
-		
+
 		return new NederlandsPage(this.driver, this.baseUrl);
 	}
-	
-	private void clickPopupMenuItem(String itemName) {
-		WebElement menuElement = getMenuListItemElement("About");
-		menuElement.click();
-		
-		WebElement popupMenuElement = menuElement.findElement(By.tagName("div"));
-		PopupMenuComponent popupMenu = new PopupMenuComponent(popupMenuElement);		
-		popupMenu.clickItem(itemName);	
-	}
-	
-	private WebElement getMenuListItemElement(String menuItem) {
-		return driver.findElement(By.xpath("//div[@id='main_navbar']/ul//li/a[text()='"+menuItem+"']/parent::li"));
-	}
-	
+
 	private void expandMenuItem(WebElement menuItemElement) {
 		WebElement anchorElement = menuItemElement.findElement(By.tagName("a"));
-		
+
 		if(anchorElement.getAttribute("aria-expanded") == "true") {
 			return;
 		}
-		
+
 		menuItemElement.click();
-		
+
 		long attributeToMatchTimeoutSeconds = 5;
 		WebDriverWait wait = new WebDriverWait(driver, attributeToMatchTimeoutSeconds);
 		wait.until(ExpectedConditions.attributeToBe(anchorElement, "aria-expanded", "true"));	
 	}
+
+	public DownloadsPage clickOnDownloadsItemMenu() {
+		WebElement menuRootElement = driver.findElement(By.id("main_navbar"));
+
+		MenuComponent menu = new MenuComponent(menuRootElement);
+		menu.navigate("Downloads");
+		
+		return new DownloadsPage(this.driver, this.baseUrl);
+	}
+
+	private void clickPopupMenuItem(String itemName) {
+		WebElement menuElement = getMenuListItemElement("About");
+		menuElement.click();
+
+		WebElement popupMenuElement = menuElement.findElement(By.tagName("div"));
+		PopupMenuComponent popupMenu = new PopupMenuComponent(popupMenuElement);		
+		popupMenu.clickItem(itemName);	
+	}
+
+	private WebElement getMenuListItemElement(String menuItem) {
+		return driver.findElement(By.xpath("//div[@id='main_navbar']/ul//li/a[text()='"+menuItem+"']/parent::li"));
+	}
+
 }
