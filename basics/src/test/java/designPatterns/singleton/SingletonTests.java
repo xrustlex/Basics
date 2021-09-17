@@ -1,4 +1,4 @@
-package designPatterns;
+package designPatterns.singleton;
 
 import static org.junit.Assert.assertTrue;
 
@@ -11,15 +11,15 @@ public class SingletonTests {
 
 	@Test
 	public void verifySingletonReturnsSameInstance() {
-		Singleton instanceOne = Singleton.getInstance();
-		Singleton instanceTwo = Singleton.getInstance();
+		DatabaseSingleton instanceOne = DatabaseSingleton.getInstance();
+		DatabaseSingleton instanceTwo = DatabaseSingleton.getInstance();
 		
 		assertTrue("Singleton is not returning same instance.", instanceOne.equals(instanceTwo));
 	}
 	
 	@Test
 	public void verifyCannotInstantiateSingleton() throws NoSuchMethodException, SecurityException {
-		Constructor<Singleton> constructor = Singleton.class.getDeclaredConstructor();
+		Constructor<DatabaseSingleton> constructor = DatabaseSingleton.class.getDeclaredConstructor();
 		
 		assertTrue("Singleton constructor is not private.", Modifier.isPrivate(constructor.getModifiers()));
 	}
