@@ -1,4 +1,4 @@
-package basics.designPatterns;
+package designPatterns;
 
 import static org.junit.Assert.assertTrue;
 

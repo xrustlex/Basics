@@ -1,6 +1,8 @@
-package basics.pageObjects;
+package seleniumDev.pageObjects;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import framework.PageObject;
 
 public class HistoryPage extends PageObject {
 

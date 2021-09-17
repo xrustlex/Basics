@@ -1,4 +1,4 @@
-package basics.designPatterns;
+package designPatterns;
 
 public class DatabaseSingleton {
 

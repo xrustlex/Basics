@@ -2,7 +2,7 @@ package basics;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import basics.pageObjects.PageObject;
+import framework.PageObject;
 
 public class DocumentationGridPage extends PageObject {
 

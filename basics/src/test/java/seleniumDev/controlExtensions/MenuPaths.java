@@ -1,4 +1,7 @@
-package basics.pageObjects;
+package seleniumDev.controlExtensions;
+
+import seleniumDev.foundation.IMenuPath;
+import seleniumDev.pageObjects.MenuPath;
 
 public class MenuPaths {
 	public static IMenuPath Downloads = new MenuPath("Downloads", "downloads/");

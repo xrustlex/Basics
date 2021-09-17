@@ -1,4 +1,6 @@
-package basics.pageObjects;
+package seleniumDev.pageObjects;
+
+import seleniumDev.foundation.IMenuPath;
 
 public class MenuPath implements IMenuPath {
 	private String segments;

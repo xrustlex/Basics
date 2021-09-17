@@ -1,4 +1,4 @@
-package basics.pageObjects;
+package seleniumDev.foundation;
 
 public interface IMenuPath {
 

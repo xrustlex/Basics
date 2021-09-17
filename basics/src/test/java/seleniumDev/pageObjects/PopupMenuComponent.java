@@ -1,4 +1,4 @@
-package basics.pageObjects;
+package seleniumDev.pageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

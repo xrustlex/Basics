@@ -1,15 +1,17 @@
-package basics;
+package seleniumDev.tests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import basics.pageObjects.DownloadsPage;
-import basics.pageObjects.EventsPage;
-import basics.pageObjects.NederlandsPage;
-import basics.pageObjects.SponsorsPage;
+import basics.DocumentationGridPage;
+import seleniumDev.foundation.SeleniumDevTestBase;
+import seleniumDev.pageObjects.DownloadsPage;
+import seleniumDev.pageObjects.EventsPage;
+import seleniumDev.pageObjects.NederlandsPage;
+import seleniumDev.pageObjects.SponsorsPage;
 
-public class SeleniumTests extends TestBase {
+public class SeleniumTests extends SeleniumDevTestBase {
 
 	@Test
 	public void canDemonstratePageObjectPatternForFragmentsClickingNederlands() {
@@ -18,7 +20,7 @@ public class SeleniumTests extends TestBase {
 		new NederlandsPage(driver, baseUrl)
 		.navigate();
 
-		assertTrue("Did not navigate to the expected URL " + expectedUrl, this.driver.getCurrentUrl().equals(expectedUrl));
+		assertEquals("Did not navigate to the expected URL", expectedUrl, getCurrentUrl());
 	}
 
 	@Test
@@ -28,7 +30,7 @@ public class SeleniumTests extends TestBase {
 		new EventsPage(driver, baseUrl)
 		.navigate();
 
-		assertTrue("Did not navigate to the expected URL " + expectedUrl, this.driver.getCurrentUrl().equals(expectedUrl));
+		assertEquals("Did not navigate to the expected URL", expectedUrl, getCurrentUrl());
 	}
 
 	@Test
@@ -38,7 +40,7 @@ public class SeleniumTests extends TestBase {
 		new DownloadsPage(driver, baseUrl)
 		.navigate();
 
-		assertTrue("Did not navigate to the expected URL " + expectedUrl, this.driver.getCurrentUrl().equals(expectedUrl));
+		assertEquals("Did not navigate to the expected URL", expectedUrl, getCurrentUrl());
 	}
 
 	@Test
@@ -48,7 +50,7 @@ public class SeleniumTests extends TestBase {
 		new SponsorsPage(driver, baseUrl)
 		.navigate();
 
-		assertTrue("Did not navigate to the expected URL " + expectedUrl, this.driver.getCurrentUrl().equals(expectedUrl));
+		assertEquals("Did not navigate to the expected URL", expectedUrl, getCurrentUrl());
 	}
 	
 	@Test
@@ -58,6 +60,11 @@ public class SeleniumTests extends TestBase {
 		new DocumentationGridPage(driver, baseUrl)
 		.navigate();
 		
-		assertTrue("Did not navigate to the expected URL " + expectedUrl, this.driver.getCurrentUrl().equals(expectedUrl));	
+		assertEquals("Did not navigate to the expected URL", expectedUrl, getCurrentUrl());
+	}
+	
+	private String getCurrentUrl() {
+		return this.driver.getCurrentUrl();
 	}
 }
+

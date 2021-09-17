@@ -1,9 +1,11 @@
-package basics.pageObjects;
+package framework;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
+
+import seleniumDev.foundation.MenuComponent;
 
 public abstract class PageObject {
 	protected ChromeDriver driver;
@@ -15,7 +17,7 @@ public abstract class PageObject {
 
 		PageFactory.initElements(driver, this);
 	}
-	
+
 	protected MenuComponent getMenu() {
 		WebElement menuRootElement = driver.findElement(By.id("main_navbar"));
 
@@ -24,9 +26,9 @@ public abstract class PageObject {
 		return menu;
 	}
 
-	public void goToUrl(String url) {
-		String fullUrl = this.baseUrl + url;
+	public void goToUrl(String relativeUrl) {
+		String fullUrl = this.baseUrl + relativeUrl;
 		
-		driver.navigate().to(fullUrl);		
+		this.driver.navigate().to(fullUrl);		
 	}
 }

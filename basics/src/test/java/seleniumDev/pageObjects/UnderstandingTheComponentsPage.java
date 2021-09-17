@@ -1,9 +1,11 @@
-package basics.pageObjects;
+package seleniumDev.pageObjects;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+
+import framework.PageObject;
 
 public class UnderstandingTheComponentsPage extends PageObject {
 	public String url = "documentation/webdriver/understanding_the_components/";

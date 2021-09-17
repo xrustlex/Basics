@@ -1,10 +1,12 @@
-package basics.pageObjects;
+package seleniumDev.pageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import framework.PageObject;
 
 public class WebDriverDocumentationPage extends PageObject {
 	public String url = "documentation/webdriver/";

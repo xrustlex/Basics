@@ -1,6 +1,9 @@
-package basics.pageObjects;
+package seleniumDev.pageObjects;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import framework.PageObject;
+import seleniumDev.controlExtensions.MenuPaths;
 
 public class NederlandsPage extends PageObject {
 
