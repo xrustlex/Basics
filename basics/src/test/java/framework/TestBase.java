@@ -1,5 +1,7 @@
 package framework;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,6 +20,7 @@ public abstract class TestBase {
 	@Before
 	public void setup() {
 		this.driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
 		this.driver.manage().window().maximize();
 		this.driver.navigate().to(this.baseUrl);		
 	}
