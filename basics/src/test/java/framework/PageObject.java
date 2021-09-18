@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import seleniumDev.foundation.MenuComponent;
+import seleniumDev.controlExtensions.Menu;
 
 public abstract class PageObject {
 	protected ChromeDriver driver;
@@ -18,10 +18,10 @@ public abstract class PageObject {
 		PageFactory.initElements(driver, this);
 	}
 
-	protected MenuComponent getMenu() {
+	protected Menu getMenu() {
 		WebElement menuRootElement = driver.findElement(By.id("main_navbar"));
 
-		MenuComponent menu = new MenuComponent(menuRootElement, this.driver);
+		Menu menu = new Menu(menuRootElement, this.driver);
 		
 		return menu;
 	}

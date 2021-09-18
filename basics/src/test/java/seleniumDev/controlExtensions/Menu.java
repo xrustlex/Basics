@@ -1,4 +1,4 @@
-package seleniumDev.foundation;
+package seleniumDev.controlExtensions;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -6,14 +6,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class MenuComponent {
+import seleniumDev.foundation.IMenuPath;
+
+public class Menu {
 	final long ATTRIBUTE_TO_MATCH_TIMEOUT_SECONDS = 5;
 	private WebElement mappedElement;
 	private By menuItemRoot = By.tagName("ul");
 	private WebElement menuItemRootElement;
 	private WebDriver driver;
 	
-	public MenuComponent(WebElement mappedElement, WebDriver driver) {
+	public Menu(WebElement mappedElement, WebDriver driver) {
 		this.mappedElement = mappedElement;
 		this.driver = driver;
 	}
