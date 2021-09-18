@@ -23,4 +23,17 @@ public class AmpegTests extends AmpegTestBase {
 
 		assertEquals("Did not navigate to the homepage.", expectedUrl , actualUrl);
 	}
+	
+	@Test
+	public void canGetHandlingWeightOfSvt410Hlf() {
+		String expectedHandlingWeight = "85 Pounds";
+
+		String handlingWeight = new HomePage(this.driver, this.baseUrl)
+		.clickProductsMenuLink()
+		.viewClassicSeriesProductLineDetails()
+		.viewSvt410HlfProductDetails()
+		.getHandlingWeight();
+
+		assertEquals("Handling weight is not as expected.", expectedHandlingWeight , handlingWeight);
+	}
 }

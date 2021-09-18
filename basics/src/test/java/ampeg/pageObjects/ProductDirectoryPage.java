@@ -12,6 +12,9 @@ public class ProductDirectoryPage extends PageObject {
 	@FindBy(how=How.XPATH, using="//table[@id='tableMain']//img[@alt='SVT Pro Series: Bass heads']/parent::a")
 	private WebElement svtProSeriesLink;
 
+	@FindBy(how=How.XPATH, using="//table[@id='tableMain']//img[@alt='Classic Series: Bass heads & enclosures']/parent::a")
+	private WebElement classicSeriesLink;
+	
 	public ProductDirectoryPage(ChromeDriver driver, String baseUrl) {
 		super(driver, baseUrl);
 	}
@@ -20,5 +23,11 @@ public class ProductDirectoryPage extends PageObject {
 		svtProSeriesLink.click();
 		
 		return new ProSeriesPage(this.driver, this.baseUrl);
+	}
+
+	public ClassicSeriesPage viewClassicSeriesProductLineDetails() {
+		classicSeriesLink.click();
+		
+		return new ClassicSeriesPage(this.driver, this.baseUrl);
 	}
 }
