@@ -18,7 +18,7 @@ public class HomePage extends PageObject {
 
 	public ProductDirectoryPage clickProductsMenuLink() {
 		productsLink.click();
-		
+
 		return new ProductDirectoryPage(this.driver, this.baseUrl);
 	}
 }

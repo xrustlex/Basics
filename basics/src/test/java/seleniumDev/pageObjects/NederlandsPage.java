@@ -13,7 +13,7 @@ public class NederlandsPage extends PageObject {
 
 	public NederlandsPage navigate() {
 		getMenu().navigate(MenuPaths.EnglishNederlands);	
-		
+
 		return this;
 	}
 }

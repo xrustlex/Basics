@@ -7,7 +7,7 @@ public class PricingContext {
 	public void setDiscountStrategy(IDiscountStrategy discountStrategy) {
 		this.discountStrategy = discountStrategy;
 	}
-	
+
 	public double applyDiscount(double listPrice) {
 		return discountStrategy.computeDiscountedPrice(listPrice);
 	}

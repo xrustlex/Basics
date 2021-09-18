@@ -13,7 +13,7 @@ public class DownloadsPage extends PageObject {
 
 	public DownloadsPage navigate() {
 		getMenu().navigate(MenuPaths.Downloads);
-		
+
 		return this;
 	}
 }

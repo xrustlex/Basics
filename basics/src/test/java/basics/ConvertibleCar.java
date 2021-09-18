@@ -16,7 +16,7 @@ public class ConvertibleCar extends ConvertibleVehicle {
 	public void raiseTop() {
 		this.isTopLowered = false;			
 	}
-	
+
 	public boolean isTopLowered() {
 		return this.isTopLowered;
 	}

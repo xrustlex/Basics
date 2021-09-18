@@ -14,7 +14,7 @@ public class Menu {
 	private By menuItemRoot = By.tagName("ul");
 	private WebElement menuItemRootElement;
 	private WebDriver driver;
-	
+
 	public Menu(WebElement mappedElement, WebDriver driver) {
 		this.mappedElement = mappedElement;
 		this.driver = driver;
@@ -35,10 +35,10 @@ public class Menu {
 
 		WebDriverWait wait = new WebDriverWait(this.driver, ATTRIBUTE_TO_MATCH_TIMEOUT_SECONDS);
 		wait.until(ExpectedConditions.attributeToBe(anchorElement, "aria-expanded", "true"));	
-			
+
 		String popupMenuItem = menuPathSegments[1];
 		WebElement popupMenuElement = listItemElement.findElement(By.xpath("./div//a[text()='" + popupMenuItem + "']"));
-		
+
 		popupMenuElement.click();
 	}	
 

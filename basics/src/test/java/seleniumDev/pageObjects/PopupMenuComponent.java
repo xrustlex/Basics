@@ -12,7 +12,7 @@ public class PopupMenuComponent {
 
 	public void clickItem(String itemName) {
 		WebElement menuItem = this.mappedElement.findElement(By.xpath(".//a[text()='" + itemName + "']"));
-		
+
 		menuItem.click();
 	}	
 }

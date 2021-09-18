@@ -10,10 +10,10 @@ import framework.PageObject;
 
 public class WebDriverDocumentationPage extends PageObject {
 	public String url = "documentation/webdriver/";
-	
+
 	public WebDriverDocumentationPage(ChromeDriver driver, String baseUrl) {
 		super(driver, baseUrl);
-		
+
 		String fullUrl = this.baseUrl + url;
 		long navigateWaitTimeoutSecond = 5;
 		WebDriverWait urlChangedWait = new WebDriverWait(driver, navigateWaitTimeoutSecond);
@@ -23,7 +23,7 @@ public class WebDriverDocumentationPage extends PageObject {
 	public UnderstandingTheComponentsPage clickUnderstandingTheComponentsLink() {
 		WebElement link = driver.findElement(By.linkText("Understanding the components"));
 		link.click();
-		
+
 		return new UnderstandingTheComponentsPage(driver, this.baseUrl);
 	}
 }

@@ -13,7 +13,7 @@ public class EventsPage extends PageObject {
 
 	public EventsPage navigate() {
 		getMenu().navigate(MenuPaths.AboutEvents);	
-		
+
 		return this;
 	}
 }

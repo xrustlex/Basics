@@ -13,7 +13,7 @@ public class Svt410HlfProductDetailsPage extends PageObject {
 
 	public String getHandlingWeight() {
 		String handlingWeight = (String)super.executeJavascript(getHandlingWeightScript, null);
-		
+
 		return handlingWeight.trim();
 	}
 }

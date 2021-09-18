@@ -30,7 +30,7 @@ public class SeleniumDevHomePage extends PageObject {
 
 	public SponsorsPage clickOnSponsorMenuItem() {
 		getMenu().navigate(MenuPaths.AboutSponsors);
-		
+
 		return new SponsorsPage(this.driver, this.baseUrl);
 	}
 }

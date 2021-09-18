@@ -12,7 +12,7 @@ public class AutomationFormPracticePage extends framework.PageObject {
 
 	public AutomationFormPracticePage navigate() {
 		super.goToUrl(url);
-		
+
 		return this;
 	}
 }

@@ -15,7 +15,7 @@ public class UnderstandingTheComponentsPage extends PageObject {
 
 	@FindBy(how=How.TAG_NAME, using="p")
 	private WebElement firstParagraph;
-	
+
 	public UnderstandingTheComponentsPage(ChromeDriver driver, String baseUrl) {
 		super(driver, baseUrl);
 	}

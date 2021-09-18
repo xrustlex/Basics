@@ -6,7 +6,7 @@ public class DatabaseSingleton {
 
 	private DatabaseSingleton() {	
 	}
-	
+
 	public static DatabaseSingleton getInstance() {
 		if(singletonInstance == null) {
 			singletonInstance = new DatabaseSingleton();	

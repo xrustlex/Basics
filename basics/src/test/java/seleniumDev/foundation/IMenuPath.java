@@ -5,5 +5,4 @@ public interface IMenuPath {
 	String getSegments();
 
 	String getRelativeUrl();
-
 }

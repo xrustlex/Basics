@@ -13,14 +13,14 @@ public class SingletonTests {
 	public void verifySingletonReturnsSameInstance() {
 		DatabaseSingleton instanceOne = DatabaseSingleton.getInstance();
 		DatabaseSingleton instanceTwo = DatabaseSingleton.getInstance();
-		
+
 		assertTrue("Singleton is not returning same instance.", instanceOne.equals(instanceTwo));
 	}
-	
+
 	@Test
 	public void verifyCannotInstantiateSingleton() throws NoSuchMethodException, SecurityException {
 		Constructor<DatabaseSingleton> constructor = DatabaseSingleton.class.getDeclaredConstructor();
-		
+
 		assertTrue("Singleton constructor is not private.", Modifier.isPrivate(constructor.getModifiers()));
 	}
 }

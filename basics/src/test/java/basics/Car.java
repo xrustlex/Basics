@@ -6,7 +6,7 @@ public class Car extends Vehicle {
 	private IEngine engine;
 
 	private boolean isStarted;
-	
+
 	public Car(String model, IEngine engine) {
 		this.model = model;
 		this.engine = engine;		
@@ -16,11 +16,11 @@ public class Car extends Vehicle {
 		this.engine.start();
 		this.isStarted = true;
 	}
-	
+
 	public boolean getIsStarted() {
 		return isStarted;
 	}
-	
+
 	public void drive(int distance) {
 		if(getIsStarted()) {
 			this.odometer += distance;

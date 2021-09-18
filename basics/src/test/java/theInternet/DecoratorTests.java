@@ -11,12 +11,12 @@ public class DecoratorTests extends TheInternetTestBase {
 	@Test
 	public void canDemonstrateDecorator() {
 		String option = "Option 2";
-		
+
 		String selectedOption = new DropdownPage(driver, this.baseUrl)
 				.navigate()
 				.selectDropdownOption(option)
 				.getSelectedDropdownOption();
-		
+
 		assertEquals("Incorrect state was selected.", option, selectedOption);
 	}
 }
