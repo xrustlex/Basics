@@ -1,12 +1,12 @@
 package seleniumDev.pageObjects;
 
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebDriver;
 
 import framework.PageObject;
 import seleniumDev.controlExtensions.MenuPaths;
 
 public class SeleniumDevHomePage extends PageObject {
-	public SeleniumDevHomePage(ChromeDriver driver, String baseUrl) {
+	public SeleniumDevHomePage(WebDriver driver, String baseUrl) {
 		super(driver, baseUrl);
 	}
 
