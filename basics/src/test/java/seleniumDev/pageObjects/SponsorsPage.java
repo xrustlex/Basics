@@ -1,6 +1,6 @@
 package seleniumDev.pageObjects;
 
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebDriver;
 
 import framework.PageObject;
 import seleniumDev.controlExtensions.MenuPaths;
@@ -9,7 +9,7 @@ public class SponsorsPage extends PageObject {
 
 	public final String url = this.baseUrl + MenuPaths.AboutSponsors.getRelativeUrl();
 
-	public SponsorsPage(ChromeDriver driver, String baseUrl) {
+	public SponsorsPage(WebDriver driver, String baseUrl) {
 		super(driver, baseUrl);
 	}
 

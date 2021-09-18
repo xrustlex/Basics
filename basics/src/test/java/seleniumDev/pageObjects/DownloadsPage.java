@@ -1,13 +1,13 @@
 package seleniumDev.pageObjects;
 
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebDriver;
 
 import framework.PageObject;
 import seleniumDev.controlExtensions.MenuPaths;
 
 public class DownloadsPage extends PageObject {
 
-	public DownloadsPage(ChromeDriver driver, String baseUrl) {
+	public DownloadsPage(WebDriver driver, String baseUrl) {
 		super(driver, baseUrl);
 	}
 

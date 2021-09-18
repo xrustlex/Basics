@@ -1,7 +1,7 @@
 package ampeg.pageObjects;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -15,7 +15,7 @@ public class ProductDirectoryPage extends PageObject {
 	@FindBy(how=How.XPATH, using="//table[@id='tableMain']//img[@alt='Classic Series: Bass heads & enclosures']/parent::a")
 	private WebElement classicSeriesLink;
 
-	public ProductDirectoryPage(ChromeDriver driver, String baseUrl) {
+	public ProductDirectoryPage(WebDriver driver, String baseUrl) {
 		super(driver, baseUrl);
 	}
 

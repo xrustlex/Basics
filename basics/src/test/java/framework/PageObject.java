@@ -2,17 +2,17 @@ package framework;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import seleniumDev.controlExtensions.Menu;
 
 public abstract class PageObject {
-	protected ChromeDriver driver;
+	protected WebDriver driver;
 	protected String baseUrl;
 
-	protected PageObject(ChromeDriver driver, String baseUrl) {
+	protected PageObject(WebDriver driver, String baseUrl) {
 		this.driver = driver;
 		this.baseUrl = baseUrl;
 

@@ -1,13 +1,13 @@
 package seleniumDev.pageObjects;
 
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebDriver;
 
 import framework.PageObject;
 import seleniumDev.controlExtensions.MenuPaths;
 
 public class NederlandsPage extends PageObject {
 
-	public NederlandsPage(ChromeDriver driver, String baseUrl) {
+	public NederlandsPage(WebDriver driver, String baseUrl) {
 		super(driver, baseUrl);
 	}
 

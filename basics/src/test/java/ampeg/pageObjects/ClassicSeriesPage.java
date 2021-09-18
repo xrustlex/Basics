@@ -1,7 +1,7 @@
 package ampeg.pageObjects;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -12,7 +12,7 @@ public class ClassicSeriesPage extends PageObject {
 	@FindBy(how=How.XPATH, using="//table[@id='prodContent']//a[@href='svt410hlf/']")
 	private WebElement svt410HlfLink;
 
-	public ClassicSeriesPage(ChromeDriver driver, String baseUrl) {
+	public ClassicSeriesPage(WebDriver driver, String baseUrl) {
 		super(driver, baseUrl);
 	}
 
