@@ -17,7 +17,7 @@ public class SeleniumTests extends SeleniumDevTestBase {
 	public void canDemonstratePageObjectPatternForFragmentsClickingNederlands() {
 		String expectedUrl = this.baseUrl + "nl/";
 
-		new NederlandsPage(driver, baseUrl)
+		new NederlandsPage(this.getDriver(), baseUrl)
 		.navigate();
 
 		assertEquals("Did not navigate to the expected URL", expectedUrl, getCurrentUrl());
@@ -27,7 +27,7 @@ public class SeleniumTests extends SeleniumDevTestBase {
 	public void canDemonstratePageObjectPatternForFragmentsClickingEventsInAbout() {
 		String expectedUrl = this.baseUrl + "events/";
 
-		new EventsPage(driver, baseUrl)
+		new EventsPage(this.getDriver(), baseUrl)
 		.navigate();
 
 		assertEquals("Did not navigate to the expected URL", expectedUrl, getCurrentUrl());
@@ -37,7 +37,7 @@ public class SeleniumTests extends SeleniumDevTestBase {
 	public void canDemonstratePageObjectPatternForFragmentsClickingDownloads() {
 		String expectedUrl = this.baseUrl + "downloads/";
 
-		new DownloadsPage(driver, baseUrl)
+		new DownloadsPage(this.getDriver(), baseUrl)
 		.navigate();
 
 		assertEquals("Did not navigate to the expected URL", expectedUrl, getCurrentUrl());
@@ -47,7 +47,7 @@ public class SeleniumTests extends SeleniumDevTestBase {
 	public void canDemonstratePageObjectPatternForFragmentsClickingSponsor() {
 		String expectedUrl = this.baseUrl + "sponsors/";
 
-		new SponsorsPage(driver, baseUrl)
+		new SponsorsPage(this.getDriver(), baseUrl)
 		.navigate();
 
 		assertEquals("Did not navigate to the expected URL", expectedUrl, getCurrentUrl());
@@ -57,14 +57,14 @@ public class SeleniumTests extends SeleniumDevTestBase {
 	public void canNavigateToSeleniumGridPage() { 
 		String expectedUrl = this.baseUrl + "documentation/grid/";
 
-		new DocumentationGridPage(driver, baseUrl)
+		new DocumentationGridPage(this.getDriver(), baseUrl)
 		.navigate();
 
 		assertEquals("Did not navigate to the expected URL", expectedUrl, getCurrentUrl());
 	}
 
 	private String getCurrentUrl() {
-		return this.driver.getCurrentUrl();
+		return this.getDriver().getCurrentUrl();
 	}
 }
 

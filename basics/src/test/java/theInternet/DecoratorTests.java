@@ -12,7 +12,7 @@ public class DecoratorTests extends TheInternetTestBase {
 	public void canDemonstrateDecorator() {
 		String option = "Option 2";
 
-		String selectedOption = new DropdownPage(driver, this.baseUrl)
+		String selectedOption = new DropdownPage(this.getDriver(), this.baseUrl)
 				.navigate()
 				.selectDropdownOption(option)
 				.getSelectedDropdownOption();

@@ -13,8 +13,8 @@ public class DropdownPage extends framework.PageObject {
 	@FindBy(how=How.ID, using="dropdown")
 	private WebElement dropdownElement;
 
-	public DropdownPage(WebDriver driver, String baseUrl) {
-		super(driver, baseUrl);
+	public DropdownPage(WebDriver webDriver, String baseUrl) {
+		super(webDriver, baseUrl);
 	}
 
 	public DropdownPage navigate() {

@@ -13,13 +13,13 @@ public class AmpegTests extends AmpegTestBase {
 	public void canNavigateToHomepageFromProductDetailsPage() {
 		String expectedUrl = "https://ampeg.com/index.html";
 
-		new HomePage(this.driver, this.baseUrl)
+		new HomePage(this.getDriver(), this.baseUrl)
 			.clickProductsMenuLink()
 			.viewSvtProSeriesProductLineDetails()
 			.viewSvt3ProProductDetails()
 			.clickHomeBreadcrumb();
 
-		String actualUrl = this.driver.getCurrentUrl();
+		String actualUrl = this.getDriver().getCurrentUrl();
 
 		assertEquals("Did not navigate to the homepage.", expectedUrl , actualUrl);
 	}
@@ -28,7 +28,7 @@ public class AmpegTests extends AmpegTestBase {
 	public void canGetHandlingWeightOfSvt410Hlf() {
 		String expectedHandlingWeight = "85 Pounds";
 
-		String handlingWeight = new HomePage(this.driver, this.baseUrl)
+		String handlingWeight = new HomePage(this.getDriver(), this.baseUrl)
 				.clickProductsMenuLink()
 				.viewClassicSeriesProductLineDetails()
 				.viewSvt410HlfProductDetails()

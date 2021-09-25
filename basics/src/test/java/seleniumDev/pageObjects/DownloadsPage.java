@@ -1,7 +1,6 @@
 package seleniumDev.pageObjects;
 
 import org.openqa.selenium.WebDriver;
-
 import framework.PageObject;
 import seleniumDev.controlExtensions.MenuPaths;
 

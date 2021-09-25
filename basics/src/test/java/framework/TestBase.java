@@ -5,29 +5,36 @@ import java.util.concurrent.TimeUnit;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+
+import framework.webDriverFactory.DriverManager;
+import framework.webDriverFactory.DriverManagerFactory;
 
 public abstract class TestBase {
-	final String WEB_DRIVER_SYSTEM_PROPERTY = "webdriver.chrome.driver";
-	protected WebDriver driver;
 	protected String baseUrl;
+	private DriverManager driverManager;
+	private Settings settings;
 
 	protected TestBase(String baseUrl) {
 		this.baseUrl = baseUrl;
-		String chromeDriverPath = "C:\\\\Users\\dtaylor\\chromedriver.exe";
-		System.setProperty(WEB_DRIVER_SYSTEM_PROPERTY, chromeDriverPath);
+		this.settings = Settings.get();
 	}
 
 	@Before
 	public void setup() {
-		this.driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
-		this.driver.manage().window().maximize();
-		this.driver.navigate().to(this.baseUrl);		
+		this.driverManager = DriverManagerFactory.getManager(settings.browserType);
+		this.driverManager.createDriver();
+
+		getDriver().manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+		getDriver().manage().window().maximize();
+		getDriver().navigate().to(this.baseUrl);		
 	}
 
 	@After
 	public void cleanup() {
-		this.driver.quit();
+		this.driverManager.quitDriver();
+	}
+
+	public WebDriver getDriver() {
+		return this.driverManager.getDriver();
 	}
 }
