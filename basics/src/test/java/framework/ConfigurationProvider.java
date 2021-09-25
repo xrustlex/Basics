@@ -19,6 +19,9 @@ public class ConfigurationProvider {
 
 			properties.load(inputStream);
 		}
+		catch(Exception ex) {
+			throw new RuntimeException();
+		}
 		finally {
 			if(inputStream != null) {
 				inputStream.close();

@@ -6,6 +6,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 
+import framework.webDriverFactory.DriverManager;
+import framework.webDriverFactory.DriverManagerFactory;
+
 public abstract class TestBase {
 	protected String baseUrl;
 	private DriverManager driverManager;
